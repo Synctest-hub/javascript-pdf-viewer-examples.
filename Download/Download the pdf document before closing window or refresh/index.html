@@ -48,6 +48,7 @@ ej.pdfviewer.PdfViewer.Inject(
   ej.pdfviewer.FormFields,
   ej.pdfviewer.FormDesigner
 );
+//Method to perform download action on window refresh or closing the window.
 window.onbeforeunload = function(e){
         var message = "Do you want to close the page?"
         e = e || window.event;
