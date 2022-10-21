@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PdfViewerWebService", "PdfViewerWebService.csproj", "{227B0E04-2897-4BB4-9BBE-9076849923CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{227B0E04-2897-4BB4-9BBE-9076849923CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{227B0E04-2897-4BB4-9BBE-9076849923CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{227B0E04-2897-4BB4-9BBE-9076849923CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{227B0E04-2897-4BB4-9BBE-9076849923CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05A347C3-D705-45B2-9A3D-3FD008526A75}
+	EndGlobalSection
+EndGlobal
