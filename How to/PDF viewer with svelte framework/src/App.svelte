@@ -2,7 +2,7 @@
 	const initializeRemarkable = () => {
 		let pdfViewer = new ej.pdfviewer.PdfViewer({
 			// Change serviceUrl to the host link for your local PDF viewer server.
-			serviceUrl : 'https://ej2services.syncfusion.com/production/web-services/api/pdfviewer',
+			serviceUrl : 'https://services.syncfusion.com/js/production/api/pdfviewer',
 			// Change the documentPath to your preferred load document path.
 			documentPath : 'FormDesigner.pdf',
 		});
