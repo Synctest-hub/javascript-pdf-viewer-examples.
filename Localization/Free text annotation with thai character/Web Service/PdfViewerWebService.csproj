@@ -6,12 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.0" />
-    <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="23.2.6" />
+	  <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.24" />
+	  <PackageReference Include="Syncfusion.EJ2.PdfViewer.AspNet.Core.Windows" Version="23.2.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Data\https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf">
+    <None Update="Data\PDF_Succinctly.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
