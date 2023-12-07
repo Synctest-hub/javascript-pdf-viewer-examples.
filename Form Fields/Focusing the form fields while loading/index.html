@@ -32,8 +32,10 @@
    <script>
       var viewer = new ej.pdfviewer.PdfViewer();
       viewer.serviceUrl = 'https://services.syncfusion.com/js/production/api/pdfviewer';
+      viewer.documentPath = 'https://cdn.syncfusion.com/content/pdf/form-filling-document.pdf';
       viewer.appendTo('#pdfViewer');
-      viewer.load('FormFillingDocument.pdf', null);
+      viewer.dataBind();
+      viewer.load(viewer.documentPath , null);
       viewer.enableFormFieldsValidation = true;
       viewer.showNotificationDialog = false;
       viewer.validateFormFields = function (args) {
