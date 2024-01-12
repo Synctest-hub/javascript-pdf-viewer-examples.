@@ -2,12 +2,12 @@
   <head>
     <!--Refer scripts and styles from CDN-->
     <script
-      src="https://cdn.syncfusion.com/ej2/20.2.48/dist/ej2.min.js"
+      src="https://cdn.syncfusion.com/ej2/24.1.41/dist/ej2.min.js"
       type="text/javascript">
     </script>
     
     <link
-      href="https://cdn.syncfusion.com/ej2/20.2.48/material.css"
+      href="https://cdn.syncfusion.com/ej2/24.1.41/material.css"
       rel="stylesheet"/>
 
     <link
@@ -30,8 +30,8 @@
       <script>
         var viewer = new ej.pdfviewer.PdfViewer({
         //Sets the document path for initial loading.
-        documentPath: 'PDF_Succinctly.pdf',
-        serviceUrl:'https://ej2services.syncfusion.com/production/web-services/api/pdfviewer',
+        documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
+        resourceUrl : "https://cdn.syncfusion.com/ej2/24.1.41/dist/ej2-pdfviewer-lib"
 });
 //Inject the dependencies required to render the PDF Viewer.
 ej.pdfviewer.PdfViewer.Inject(
