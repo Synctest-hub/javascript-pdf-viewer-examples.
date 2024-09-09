@@ -34,6 +34,7 @@ var pdfviewer = new ej.pdfviewer.PdfViewer({
 ej.pdfviewer.PdfViewer.Inject(ej.pdfviewer.TextSelection, ej.pdfviewer.TextSearch, ej.pdfviewer.Print, ej.pdfviewer.Navigation, ej.pdfviewer.Toolbar,ej.pdfviewer.Magnification, ej.pdfviewer.Annotation, ej.pdfviewer.FormDesigner, ej.pdfviewer.FormFields);
                
 //PDF Viewer control rendering starts
+pdfviewer.printScaleFactor=0.5;
 pdfviewer.appendTo('#PdfViewer');
 pdfviewer.toolbarClick = function (args) {
     if (args.item && args.item.id === 'print') {
