@@ -1,6 +1,6 @@
 var pdfviewer = new ej.pdfviewer.PdfViewer({
     documentPath: 'https://cdn.syncfusion.com/content/pdf/pdf-succinctly.pdf',
-    resourceUrl: 'https://cdn.syncfusion.com/ej2/24.1.41/dist/ej2-pdfviewer-lib',
+    resourceUrl: 'https://cdn.syncfusion.com/ej2/27.1.48/dist/ej2-pdfviewer-lib',
 });
 ej.pdfviewer.PdfViewer.Inject(ej.pdfviewer.TextSelection, ej.pdfviewer.TextSearch, ej.pdfviewer.Print, ej.pdfviewer.Navigation, ej.pdfviewer.Toolbar, ej.pdfviewer.Magnification, ej.pdfviewer.Annotation, ej.pdfviewer.FormDesigner, ej.pdfviewer.FormFields);
 pdfviewer.appendTo('#PdfViewer');
@@ -8,7 +8,6 @@ pdfviewer.appendTo('#PdfViewer');
 let addHandwrittenSignature = document.getElementById('addHandwrittenSignature');
 if (addHandwrittenSignature) {
     addHandwrittenSignature.addEventListener('click', () => {
-        
         if (pdfviewer) {
             pdfviewer.annotation.addAnnotation("HandWrittenSignature", {
                 offset: { x: 220, y: 180 },
