@@ -3,19 +3,8 @@ var pdfviewer = new ej.pdfviewer.PdfViewer({
   serviceUrl: 'https://services.syncfusion.com/js/production/api/pdfviewer'
 });
 ej.pdfviewer.PdfViewer.Inject(ej.pdfviewer.TextSelection, ej.pdfviewer.TextSearch, ej.pdfviewer.Print, ej.pdfviewer.Navigation, ej.pdfviewer.Toolbar,
-                            ej.pdfviewer.Magnification, ej.pdfviewer.Annotation, ej.pdfviewer.FormDesigner, ej.pdfviewer.FormFields, ej.pdfviewer.PageOrganizer);
-pdfviewer.appendTo('#PdfViewer');                              
-var pageSizes = [];
-pdfviewer.ajaxRequestSuccess = function (args) {
-  if (args.action === 'Load') {
-    let objLength = Object.keys(args.data.pageSizes).length;
-    for (var x = 0; x < objLength; x++) {
-      var pageSize = args.data.pageSizes[x];
-      pageSizes.push(pageSize);
-    }
-  }
-};
-
+  ej.pdfviewer.Magnification, ej.pdfviewer.Annotation, ej.pdfviewer.FormDesigner, ej.pdfviewer.FormFields, ej.pdfviewer.PageOrganizer);
+pdfviewer.appendTo('#PdfViewer');
 
 pdfviewer.exportSuccess = function (args) {
   console.log(args.exportData);
@@ -30,17 +19,12 @@ pdfviewer.exportSuccess = function (args) {
       shapeAnnotationData.map(data => {
         if (data && data.rect && parseInt(data.rect.width)) {
 
-          //var pageHeight=parseInt(data.rect.height);
-          var pageHeight = pageSizes[parseInt(data.page)].Height
+          var pageHeight = pdfviewer.getPageInfo(pdfviewer.currentPageNumber).height;
 
           // Converting PDF Library values into PDF Viewer values. 
           var rect = {
             x: (parseInt(data.rect.x) * 96) / 72,
-
-            // Converting pageHeight from pixels(PDF Viewer) to points(PDF Library) for accurate positioning
-            // The conversion factor of 72/96 is used to change pixel values to points
-            y: (parseInt(pageHeight) * 72 / 96 - parseInt(data.rect.height)) * 96 / 72,
-
+            y: (parseInt(pageHeight) - parseInt(data.rect.height)) * 96 / 72,
             width: (parseInt(data.rect.width) - parseInt(data.rect.x)) * 96 / 72,
             height: (parseInt(data.rect.height) - parseInt(data.rect.y)) * 96 / 72,
           };
@@ -51,11 +35,11 @@ pdfviewer.exportSuccess = function (args) {
           const [endX, endY] = data.end.split(',').map(Number);
 
           // Convert to PDF Viewer coordinates
-          const pageHeight = pageSizes[parseInt(data.page)].Height;
+          var pageHeight = pdfviewer.getPageInfo(pdfviewer.currentPageNumber).height;
           const pdfStartX = (startX * 96) / 72;
-          const pdfStartY = (parseInt(pageHeight) * 72 / 96 - startY) * 96 / 72;
+          const pdfStartY = (parseInt(pageHeight) - startY) * 96 / 72;
           const pdfEndX = (endX * 96) / 72;
-          const pdfEndY = (parseInt(pageHeight) * 72 / 96 - endY) * 96 / 72;
+          const pdfEndY = (parseInt(pageHeight) - endY) * 96 / 72;
 
           rect = {
             x: Math.min(pdfStartX, pdfEndX),
@@ -64,7 +48,8 @@ pdfviewer.exportSuccess = function (args) {
             height: Math.abs(pdfEndY - pdfStartY),
           };
         }
-        if (rect != null && data.type!='Text') {
+
+        if (rect != null && data.type != 'Text') {
           console.log(data.name);
           console.log(rect);
           console.log("-------------------------");
@@ -76,6 +61,7 @@ pdfviewer.exportSuccess = function (args) {
     });
 };
 
+// Function to convert Blob URL to object
 function convertBlobURLToObject(blobURL) {
   return fetch(blobURL)
     .then((response) => response.blob())
