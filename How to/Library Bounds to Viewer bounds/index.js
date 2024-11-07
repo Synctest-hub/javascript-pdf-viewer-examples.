@@ -19,7 +19,7 @@ pdfviewer.exportSuccess = function (args) {
       shapeAnnotationData.map(data => {
         if (data && data.rect && parseInt(data.rect.width)) {
 
-          var pageHeight = pdfviewer.getPageInfo(pdfviewer.currentPageNumber).height;
+          var pageHeight = pdfviewer.getPageInfo(parseInt(data.page)).height;
 
           // Converting PDF Library values into PDF Viewer values. 
           var rect = {
@@ -35,7 +35,7 @@ pdfviewer.exportSuccess = function (args) {
           const [endX, endY] = data.end.split(',').map(Number);
 
           // Convert to PDF Viewer coordinates
-          var pageHeight = pdfviewer.getPageInfo(pdfviewer.currentPageNumber).height;
+          var pageHeight = pdfviewer.getPageInfo(parseInt(data.page)).height;
           const pdfStartX = (startX * 96) / 72;
           const pdfStartY = (parseInt(pageHeight) - startY) * 96 / 72;
           const pdfEndX = (endX * 96) / 72;
