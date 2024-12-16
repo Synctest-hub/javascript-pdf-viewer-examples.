@@ -6,6 +6,8 @@ ej.pdfviewer.PdfViewer.Inject(ej.pdfviewer.TextSelection, ej.pdfviewer.TextSearc
   ej.pdfviewer.Magnification, ej.pdfviewer.Annotation, ej.pdfviewer.FormDesigner, ej.pdfviewer.FormFields, ej.pdfviewer.PageOrganizer);
 pdfviewer.appendTo('#PdfViewer');
 
+
+// Highlight event handler for text search, which adds a rectangle annotation where the text is found
 pdfviewer.textSearchHighlight = function(args){
   console.log(args);
   var pageNumber = args.pageNumber;
@@ -18,14 +20,17 @@ pdfviewer.textSearchHighlight = function(args){
   });
 }  
 
+// Add event listener to "searchText" button to trigger a search for the term 'PDF'
 document.getElementById("searchText").addEventListener("click",function(args){
   pdfviewer.textSearchModule.searchText('PDF',false);
 })
 
+// Add event listener to "searchNext" button to navigate to the next search result
 document.getElementById("searchNext").addEventListener("click",function(args){
   pdfviewer.textSearch.searchNext();
 })
 
+// Add event listener to "searchCancel" button to cancel the current text search operation
 document.getElementById("searchCancel").addEventListener("click",function(args){
   pdfviewer.textSearch.cancelTextSearch();
 })
